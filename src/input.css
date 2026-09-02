@@ -1,0 +1,211 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Theme tokens */
+:root {
+    --primary: #2563EB;
+    --secondary: #06B6D4;
+
+    --dark: #0F172A;
+    --light: #F8FAFC;
+
+    --white: #FFFFFF;
+    --border: #E2E8F0;
+}
+
+/* Dark mode tokens */
+body.dark {
+    --dark: #F8FAFC;
+    --light: #0F172A;
+    --white: #1E293B;
+    --border: #334155;
+    background-color: var(--light);
+    color: var(--dark);
+}
+
+/* FAQ accordion animation */
+details[open] .faq-chevron {
+    transform: rotate(180deg);
+}
+
+/* Collapsed sidebar desktop layout */
+@media (min-width: 768px) {
+    #sidebar.collapsed {
+        width: 80px !important;
+    }
+
+    #sidebar.collapsed~header,
+    #sidebar.collapsed~main,
+    #sidebar.collapsed~footer {
+        margin-left: 80px !important;
+    }
+
+    #sidebar.collapsed #sidebar-logo-container {
+        display: none !important;
+    }
+
+    #sidebar.collapsed #sidebar-header {
+        justify-content: center !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    #sidebar.collapsed nav span {
+        display: none !important;
+    }
+
+    #sidebar.collapsed .sidebar-link {
+        justify-content: center !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        gap: 0 !important;
+    }
+
+    #sidebar.collapsed #sidebar-recent {
+        display: none !important;
+    }
+
+    #sidebar.collapsed #desktop-bottom-controls {
+        display: none !important;
+    }
+}
+
+/* Ultra-compact viewport navbar overrides */
+@media (max-width: 300px) {
+    #nav-pricing-btn {
+        display: none !important;
+    }
+}
+
+@media (max-width: 270px) {
+    #login-btn {
+        display: none !important;
+    }
+}
+
+/* MathLive input field styling */
+math-field {
+    border: none !important;
+    outline: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    font-size: 1.15rem !important;
+    width: 100% !important;
+    color: var(--dark) !important;
+    padding-right: 2.25rem !important;
+    --background: transparent !important;
+    --text-color: var(--dark) !important;
+    --caret-color: var(--primary) !important;
+    --selection-background-color: rgba(37, 99, 235, 0.2) !important;
+}
+
+math-field:focus-within {
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+math-field::part(virtual-keyboard-toggle) {
+    display: none !important;
+}
+
+math-field::part(menu-toggle) {
+    display: none !important;
+}
+
+/* MathLive virtual keyboard theme variables */
+:root {
+    --keyboard-background: #f8fafc;
+    --keyboard-text-color: #0f172a;
+    --keyboard-accent-color: #2563eb;
+    --keyboard-border: 1px solid #e2e8f0;
+    --keyboard-padding: 8px 12px 12px 12px;
+
+    --keyboard-toolbar-background: #ffffff;
+    --keyboard-toolbar-text-color: #64748b;
+    --keyboard-toolbar-selected-background: #2563eb;
+    --keyboard-toolbar-selected-color: #ffffff;
+
+    --keycap-background: #ffffff;
+    --keycap-background-hover: #f8fafc;
+    --keycap-background-active: #e2e8f0;
+    --keycap-text-color: #0f172a;
+    --keycap-secondary-text-color: #2563eb;
+    --keycap-border: 1px solid #e2e8f0;
+    --keycap-border-radius: 10px;
+    --keycap-shadow: 0 1px 2px rgba(15, 23, 42, 0.06), 0 1px 1px rgba(15, 23, 42, 0.04);
+    --keycap-gap: 6px;
+    --keycap-height: 46px;
+    --keycap-font-size: 1.15rem;
+
+    --keycap-modifier-background: #f1f5f9;
+    --keycap-modifier-background-hover: #e2e8f0;
+    --keycap-modifier-border: 1px solid #e2e8f0;
+    --keycap-modifier-text-color: #475569;
+
+    --keycap-primary-background: #2563eb;
+    --keycap-primary-background-hover: #1d4ed8;
+    --keycap-primary-text-color: #ffffff;
+}
+
+body.dark {
+    --keyboard-background: #0f172a;
+    --keyboard-text-color: #f8fafc;
+    --keyboard-accent-color: #3b82f6;
+    --keyboard-border: 1px solid #334155;
+
+    --keyboard-toolbar-background: #1e293b;
+    --keyboard-toolbar-text-color: #94a3b8;
+    --keyboard-toolbar-selected-background: #2563eb;
+    --keyboard-toolbar-selected-color: #ffffff;
+
+    --keycap-background: #1e293b;
+    --keycap-background-hover: #334155;
+    --keycap-background-active: #475569;
+    --keycap-text-color: #f8fafc;
+    --keycap-secondary-text-color: #60a5fa;
+    --keycap-border: 1px solid #334155;
+    --keycap-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+
+    --keycap-modifier-background: #334155;
+    --keycap-modifier-background-hover: #475569;
+    --keycap-modifier-border: 1px solid #475569;
+    --keycap-modifier-text-color: #cbd5e1;
+
+    --keycap-primary-background: #2563eb;
+    --keycap-primary-background-hover: #1d4ed8;
+    --keycap-primary-text-color: #ffffff;
+}
+
+/* MathLive virtual keyboard container layout */
+math-virtual-keyboard {
+    max-width: 900px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    border-radius: 20px 20px 0 0 !important;
+    border: 1px solid var(--border) !important;
+    border-bottom: none !important;
+    box-shadow: 0 -10px 30px -5px rgba(0, 0, 0, 0.15), 0 -4px 10px rgba(0, 0, 0, 0.05) !important;
+    overflow: hidden !important;
+    background: var(--keyboard-background) !important;
+    z-index: 1000 !important;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+@media (max-width: 768px) {
+    :root {
+        --keycap-height: 40px;
+        --keycap-gap: 4px;
+        --keycap-font-size: 1rem;
+        --keyboard-padding: 6px 8px 8px 8px;
+    }
+
+    math-virtual-keyboard {
+        max-width: 100vw !important;
+        width: 100vw !important;
+        left: 0 !important;
+        transform: none !important;
+        border-radius: 16px 16px 0 0 !important;
+    }
+}
